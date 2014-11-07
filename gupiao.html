@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gu piao</title>
+	<style>
+	canvas {width: 500px;height: 500px;}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas">your broser doesn't support canvas!</canvas>
+	<script>
+	var cv = document.getElementById("myCanvas");
+
+	var ctx = cv.getContext("2d");
+
+	var start = 0;
+	ctx.beginPath();
+	var cell = 24.7;
+	var cellWidth = 21.5;
+	var max = cell * 8 + start;// 
+	console.log("max is :", max );
+	ctx.moveTo( start + cell, start );
+	
+	for( var i = 0; i <= 6; i++ ){// 竖线
+		var p = i * cell + start + 0.5 + cell;
+		ctx.lineTo(p, max);
+		ctx.moveTo( p + cell, start );
+	}
+
+	for( var i = 0; i <= 6; i++ ){ // 横线
+		var p = i * cellWidth + start + 0.5 + cell;
+		ctx.moveTo( start, p );
+		ctx.lineTo( max, p );
+	}
+	ctx.strokeStyle = "#ccc";
+	ctx.lineWidth = "5";
+
+	ctx.stroke();
+
+
+
+	</script>
+</body>
+</html>
